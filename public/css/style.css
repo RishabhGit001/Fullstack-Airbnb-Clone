@@ -1,0 +1,162 @@
+/* Your existing styles */
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+.container-fluid {
+  flex: 1;
+}
+
+.navbar {
+  height: 4rem;
+  background-color: white;
+}
+
+.fa-airbnb {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+.f-info-links {
+  text-decoration: none;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-links {
+  width: 100%;
+}
+
+.f-info-socials {
+  width: 100%;
+}
+
+.f-info i {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.f-info {
+  text-align: center;
+  display: flex;
+  background-color: #ebebeb;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cards */
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 2.5rem !important;
+  margin-right: 2.5rem !important;
+}
+
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text p {
+  font-weight: 400;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+#map {
+  height: 400px;
+  width: 600px;
+  border-radius: 10px;
+}
+
+.filters, .options{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filters{
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.filter{
+  text-align: center;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  opacity: 0.8;
+}
+
+.filter:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.filter p{
+  font-size: 0.8rem;
+}
+
+.tax-info{
+  display: none;
+}
+
+.tax-toggle{
+  display: flex;
+  align-items: center;
+  border: 0.5px solid rgb(185, 181, 181);
+  border-radius: 10px;
+  height: 3rem;
+  padding: 0.6rem;
+}
+
+.search-btn i{
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.search-btn{
+  border-radius: 5rem !important;
+}
+
+.search-bar{
+  border-radius: 5rem !important;
+  width: 400px !important;
+}
+
+.form-check-input{
+  height: 25px !important;
+  width: 55px !important ;
+}
+
+.form-check-label{
+  padding: 0.1rem !important;
+  padding-right: 1rem !important;
+
+}
