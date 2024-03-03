@@ -28,7 +28,7 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
-  req.flash("success", "Welcome Back to AirBnb, You are logged in!");
+  req.flash("success", "Welcome to AirBnb, You are logged in!");
   let redirectUrl = res.locals.redirect || "/listings";
   res.redirect(redirectUrl);
 };
@@ -38,7 +38,11 @@ module.exports.logout = (req, res, next) => {
     if (err) {
       return next(err);
     }
-    req.flash("success", "your are logged out!");
+    req.flash("success", "You are logged out!");
     res.redirect("/listings");
   });
 };
+
+module.exports.showmap = (req, res, next) =>{
+  res.render("map");
+}

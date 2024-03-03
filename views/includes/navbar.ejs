@@ -1,42 +1,59 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings" style="color: #fe424d !important; font-weight: 900;"
-      ><i class="fa-brands fa-airbnb" style="padding-right: 1rem !important;"></i>AirBnb</a
-    >
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav"></div>
-
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 search-bar"
-            type="search"
-            placeholder="Search destinations"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-danger search-btn" type="submit">
-            <i class="fa-solid fa-location-dot"></i><b>Search</b>
-          </button>
-        </form>
-      </div>
-
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if(!currUser){ %>
-        <a class="nav-link" href="/signup"><b>Signup</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <%}%> <%if(currUser){%>
-        <a class="nav-link" href="/logout"><b>LogOut</b></a>
-        <%}%>
-      </div>
-    </div>
+<div class="navbar fixed-top">
+  <div class="main-icon">
+      <i class="fa-brands fa-airbnb"></i>
+      <a href="/listings">Airbnb</a>
   </div>
-</nav>
+
+  <div class="new-listing">
+      <a class="btn btn-outline-danger" href="/listings/new"><i class="fa-solid fa-location-dot"></i>Airbnb your home</a>
+  </div>
+
+  <div class="account">
+      <a href="/listings">All listings</a>
+      <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              
+              <% if(currUser){ %>
+                <i class="fa-regular fa-user"></i>Hey, <%=currUser.username%>
+              <% } %>
+              <% if(!currUser){ %>
+                <i class="fa-regular fa-user"></i> Your Account
+              <% } %>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-light">
+            <% if(!currUser){ %>
+              <li><a class="dropdown-item" href="/signup"><i class="fa-solid fa-user-gear"></i><b>Signup</b></a></li>
+              <li><a class="dropdown-item" href="/login"><i class="fa-solid fa-user-check"></i><b>Login</b></a></li>
+            <% } %>
+            <% if(currUser){ %>
+              <li><a class="dropdown-item" href="/logout"><i class="fa-solid fa-user-large-slash"></i><b>Logout</b></a></li>
+            <% } %>
+          </ul>
+        </div>
+  </div>
+
+  <div class="mini">
+      
+      <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-regular fa-user"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-light">
+            <% if(!currUser){ %>
+              <li><a class="dropdown-item" href="/signup"><i class="fa-solid fa-user-gear"></i><b>Signup</b></a></li>
+              <li><a class="dropdown-item" href="/login"><i class="fa-solid fa-user-check"></i><b>Login</b></a></li>
+            <% } %>
+            <% if(currUser){ %>
+              <li><a class="dropdown-item" href="/listings"><i class="fa-solid fa-regular fa-user"></i><b> <%=currUser.username%></b></a></li>
+              <li><a class="dropdown-item" href="/logout"><i class="fa-solid fa-user-large-slash"></i><b>Logout</b></a></li>
+            <% } %>
+          </ul>
+      </div>
+      <div class="mini-new">
+          <a class="btn btn-outline-danger" href="/listings/new"><i class="fa-solid fa-house-chimney"></i>New</a>
+      </div>
+      <div class="map">
+        <a class="btn btn-outline-dark" href="/map"><i class="fa-solid fa-map-location-dot"></i>Map</a>
+      </div>
+  </div>
+</div>

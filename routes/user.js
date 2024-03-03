@@ -17,4 +17,6 @@ router.route("/login")
 
 router.get("/logout", userControlller.logout);
 
+router.get("/map", userControlller.showmap);
+
 module.exports = router;
