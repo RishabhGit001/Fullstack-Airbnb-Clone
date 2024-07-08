@@ -2,19 +2,25 @@
 
 <h2 class="explore">Explore &#127759;</h2>
 <div class="map-box">
-  <div id="map"></div>
-</divc>
-<script>
-  const mapToken = "<%= process.env.MAP_TOKEN %>";
-  mapboxgl.accessToken = mapToken;
-  const map = new mapboxgl.Map({
-    container: "map",
-    style: "mapbox://styles/mapbox/streets-v12",
-    center: [77.1025, 28.7041], // [lng, lat]
-    zoom: 8,
-  });
+  <div id="map" style="height: 200px; width: 1000px;"></div>
+</div>
 
-  const marker = new mapboxgl.Marker({ color: "red" })
-    .setLngLat([77.1025, 28.7041])
-    .addTo(map);
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Coordinates for the center of the map
+    const coordinates = [28.7041, 77.1025]; // [lat, lng]
+
+    // Initialize the map
+    const map = L.map('map').setView(coordinates, 8);
+
+    // Add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add a marker
+    const marker = L.marker(coordinates).addTo(map)
+      .bindPopup('<h5>Default Location</h5><p>Exact location will be shown here.</p>')
+      .openPopup();
+  });
 </script>

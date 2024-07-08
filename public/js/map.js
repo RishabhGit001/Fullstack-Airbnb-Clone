@@ -1,17 +1,19 @@
-mapboxgl.accessToken = mapToken;
+// public/js/map.js
 
-const map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/streets-v12",
-  center: listing.geometry.coordinates, // [lng, lat]
-  zoom: 8,
+document.addEventListener('DOMContentLoaded', () => {
+  if (listing.geometry && listing.geometry.coordinates) {
+    const coordinates = [listing.geometry.coordinates[1], listing.geometry.coordinates[0]];
+
+    const map = L.map('map').setView(coordinates, 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const marker = L.marker(coordinates).addTo(map)
+      .bindPopup(`<h5>${listing.title}</h5><p>Exact location provided after booking</p>`)
+      .openPopup();
+  } else {
+    console.error("Listing geometry coordinates are not defined or incorrect format.");
+  }
 });
-
-const marker = new mapboxgl.Marker({ color: "red" })
-  .setLngLat(listing.geometry.coordinates)
-  .addTo(map)
-  .setPopup(
-    new mapboxgl.Popup({ offset: 25 }).setHTML(
-      `<h5>${listing.title}</h5><p>Exact location provided after booking</p>`
-    )
-  );
